@@ -22,12 +22,14 @@ namespace Hangfire
     {
         private readonly RequestDelegate _next;
         private readonly HangfireDashboardCustomOptions _options;
-        private readonly Regex _titleRegex = new Regex(@"\s*Hangfire\ Dashboard\s*", RegexOptions.Compiled);
+        private readonly Regex _titleRegex = new Regex(@"\s*[^\–]Hangfire\ Dashboard\s*", RegexOptions.Compiled);
+        private readonly Regex _versionningRegex = new Regex(@"<a.*>\s*Hangfire\ \d+\.\d+\.?\d*\s*</a>\s*", RegexOptions.Compiled);
+        private readonly Regex _appNameRegex = new Regex(@"Hangfire", RegexOptions.Compiled);
 
         public HangfireDashboardCustomOptionsMiddleware(RequestDelegate next, HangfireDashboardCustomOptions options)
         {
             _next = next;
-            _options = options ?? throw new ArgumentNullException(nameof(options));
+            _options = options ?? new HangfireDashboardCustomOptions();// throw new ArgumentNullException(nameof(options));
         }
 
 #if ASPNETCORE
@@ -74,11 +76,16 @@ namespace Hangfire
                     newContent = await reader.ReadToEndAsync();
                 }
 
-                var newDashboardTitle = _options?.DashboardTitle();
-                if (!string.IsNullOrWhiteSpace(newDashboardTitle))
+                if (_options?.DashboardTitle != null)
                 {
-                    newContent = _titleRegex.Replace(newContent, newDashboardTitle);
+                    var newDashboardTitle = _options?.DashboardTitle();
+                    if (!string.IsNullOrWhiteSpace(newDashboardTitle))
+                    {
+                        newContent = _titleRegex.Replace(newContent, newDashboardTitle);
+                    }
                 }
+                newContent = _versionningRegex.Replace(newContent, "");
+                newContent = _appNameRegex.Replace(newContent, "NOVAdmin");
 
                 await context.Response.WriteAsync(newContent);
             }

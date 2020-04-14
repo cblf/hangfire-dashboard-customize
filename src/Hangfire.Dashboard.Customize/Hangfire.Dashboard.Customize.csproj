@@ -9,18 +9,18 @@
     <RootNamespace>Hangfire</RootNamespace>
     <AssemblyName>Hangfire.Dashboard.Customize</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.0.1</AssemblyVersion>
     <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
     <AssemblyOriginatorKeyFile>../../assets/hangfire-dashboard-customize.snk</AssemblyOriginatorKeyFile>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
     <PackageId>Hangfire.Dashboard.Customize</PackageId>
     <PackageTags>hangfire;dashboard;customize</PackageTags>
     <PackageProjectUrl>https://github.com/caioproiete/hangfire-dashboard-customize</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/caioproiete/hangfire-dashboard-customize</RepositoryUrl>
+    <RepositoryUrl>https://github.com/cblf/hangfire-dashboard-customize</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
-    <PackageProjectUrl>https://github.com/caioproiete/hangfire-dashboard-customize</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/cblf/hangfire-dashboard-customize</PackageProjectUrl>
     <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
@@ -28,11 +28,13 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <TreatWarningsAsErrors Condition=" '$(Configuration)' != 'Debug' ">True</TreatWarningsAsErrors>
     <TreatSpecificWarningsAsErrors />
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0.1</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-    <DefineConstants>$(DefineConstants);OWIN</DefineConstants>
+    <DefineConstants>TRACE;OWIN</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net46' ">

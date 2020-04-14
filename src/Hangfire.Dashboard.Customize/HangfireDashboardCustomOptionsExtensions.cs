@@ -38,7 +38,7 @@ namespace Hangfire
         public static IApplicationBuilder UseHangfireDashboardCustomOptions(this IApplicationBuilder app, HangfireDashboardCustomOptions options)
         {
             if (app is null) throw new ArgumentNullException(nameof(app));
-            if (options is null) throw new ArgumentNullException(nameof(options));
+            //if (options is null) throw new ArgumentNullException(nameof(options));
 
 #if ASPNETCORE
             return app.UseMiddleware<HangfireDashboardCustomOptionsMiddleware>(options);

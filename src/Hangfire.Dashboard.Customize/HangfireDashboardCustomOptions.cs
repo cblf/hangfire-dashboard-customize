@@ -11,5 +11,7 @@ namespace Hangfire
         /// The title to display in the Hangfire Dashboard
         /// </summary>
         public Func<string> DashboardTitle { get; set; }
+
+        public string RootPath { get; set; }
     }
 }

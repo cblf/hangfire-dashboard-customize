@@ -9,7 +9,7 @@
     <RootNamespace>Hangfire</RootNamespace>
     <AssemblyName>Hangfire.Dashboard.Customize</AssemblyName>
     <SignAssembly>true</SignAssembly>
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <AssemblyVersion>1.0.0.2</AssemblyVersion>
     <GenerateAssemblyVersionAttribute>true</GenerateAssemblyVersionAttribute>
     <AssemblyOriginatorKeyFile>../../assets/hangfire-dashboard-customize.snk</AssemblyOriginatorKeyFile>
     <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
@@ -29,12 +29,12 @@
     <TreatWarningsAsErrors Condition=" '$(Configuration)' != 'Debug' ">True</TreatWarningsAsErrors>
     <TreatSpecificWarningsAsErrors />
     <Version>1.0.0</Version>
-    <FileVersion>1.0.0.1</FileVersion>
+    <FileVersion>1.0.0.2</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
     <DisableImplicitFrameworkReferences>true</DisableImplicitFrameworkReferences>
-    <DefineConstants>TRACE;OWIN</DefineConstants>
+    <DefineConstants>TRACE</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net46' ">
